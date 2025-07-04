@@ -1,6 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import { useUsers } from '@/stores/user'
-import Welcome from '@/pages/Welcome.vue'
 import PageNotFound from '@/pages/errors/404.vue'
 import Dashboard from '@/pages/Dashboard.vue'
 import Login from '@/pages/auth/Login.vue'
@@ -15,21 +14,13 @@ const routes = [
     {
         path: '/',
         name: 'welcome',
-        component: Welcome,
+        component: Login,
+        query: {
+            reset: 'reset',
+        },
         meta: {
-            title: 'Welcome',
-            metaTags: [
-                {
-                    name: 'Welcome',
-                    content:
-                        'An application / authentication starter kit frontend in Vue.js 3 for Laravel Breeze.',
-                },
-                {
-                    property: 'og:Welcome',
-                    content:
-                        'An application / authentication starter kit frontend in Vue.js 3 for Laravel Breeze.',
-                },
-            ],
+            title: 'Log in',
+            guard: 'guest',
         },
     },
     {
